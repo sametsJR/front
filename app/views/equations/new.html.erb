@@ -1,0 +1,38 @@
+<div style="text-align: center;"><h3>Select the type of equation and enter the parameters you need</h3></div>
+
+<form action="">
+    <div style="text-align: center;"><input type="radio" name="equations" value="equation_details_linear">Linear equation
+    <br>
+    <input id="hii" type="radio" name="equations" value="equation_details_quadratic">Quadratic equation</div>
+</form>
+<div style="text-align: center;" id="equation_details_quadratic">
+    <div>
+      <form accept-charset="UTF-8" action="/equations" method="post">
+        <input placeholder="a" name="a" id="a" type="text" />
+        <label for="a">x<sup>2</sup> + </label>
+        <input placeholder="b" name="b" id="b" type="text" />
+        <label for="b">x + </label>
+        <input placeholder="c" name="c" id="c" type="text" />
+        <label for="c"> = 0</label>
+        <input type="text" name="type" value="quadratic"  hidden/>
+        <input type="submit" value="Calculate" >
+      </form>
+    </div>
+</div>
+<div style="text-align: center;" id="equation_details_linear">
+    <div>
+      <form accept-charset="UTF-8" action="/equations" method="post">
+        <input placeholder="a" name="a" id="a" type="text" />
+        <label for="a">x + </label>
+        <input placeholder="b" name="b" id="b" type="text" />
+        <label for="b"> = 0</label>
+        <input type="text" name="type" value="linear"  hidden/>
+        <input type="submit" value="Calculate" >
+      </form>
+    </div>
+</div>
+
+<div style="text-align: center;"><p id="notice"><%= flash[:notice] %></p></div>
+
+<%= javascript_include_tag('equation.js') %>
+<%= stylesheet_link_tag "equation.css" %>
